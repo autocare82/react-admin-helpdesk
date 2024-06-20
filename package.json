@@ -7,15 +7,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "vitest"
   },
   "dependencies": {
-    "data-generator-helpdesk": "1.0.1",
     "@faker-js/faker": "^8.4.1",
     "@react-admin/ra-navigation": "next",
     "@react-admin/ra-realtime": "next",
     "@react-admin/ra-search": "next",
     "@tanstack/react-query-devtools": "^5.45.1",
+    "@testing-library/dom": "^10.1.0",
+    "data-generator-helpdesk": "1.0.1",
     "lodash": "^4.17.21",
     "ra-data-fakerest": "^5.0.1",
     "react": "^18.3.1",
@@ -24,6 +26,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.0.0",
     "@types/lodash": "^4.17.5",
     "@types/md5": "^2.3.5",
     "@types/react": "^18.3.3",
@@ -31,7 +34,9 @@
     "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react": "^4.3.1",
     "gh-pages": "^6.1.1",
+    "jsdom": "^24.1.0",
     "typescript": "^5.5.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0"
   }
 }
