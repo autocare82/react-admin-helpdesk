@@ -52,14 +52,14 @@ export const TicketList = () => {
               },
             }}
           >
-            <ActivityField />
+            <ActivityField source="lock" label="" />
             <ReferenceField source="customer_id" reference="customers" label="">
               <CustomerAvatar size="small" />
             </ReferenceField>
             <ReferenceField source="customer_id" reference="customers" />
             <DateField source="updated_at" label="Date" textAlign="right" />
-            <SubjectField />
-            <FromField />
+            <SubjectField label="Subject" />
+            <FromField label="From" />
             <StatusField />
           </Datagrid>
         </List>

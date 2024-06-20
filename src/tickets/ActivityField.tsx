@@ -1,4 +1,4 @@
-import { useRecordContext, useGetOne } from "react-admin";
+import { useRecordContext, useGetOne, FieldProps } from "react-admin";
 import { useLocksContext } from "@react-admin/ra-realtime";
 import { Tooltip, Box } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -6,7 +6,7 @@ import LockIcon from "@mui/icons-material/Lock";
 
 import { useTicketReadsContext } from "./TicketReadsContext";
 
-export const ActivityField = () => {
+export const ActivityField = (props: FieldProps) => {
   const record = useRecordContext();
 
   const locks = useLocksContext();
@@ -19,11 +19,6 @@ export const ActivityField = () => {
   if (lock) return <LockedIcon identity={lock.identity} />;
   if (read) return <ReadIcon identity={read.userId} />;
   return <PlaceHolder />;
-};
-
-ActivityField.defaultProps = {
-  label: "",
-  source: "lock",
 };
 
 const LockedIcon = ({ identity }: { identity?: string }) => {

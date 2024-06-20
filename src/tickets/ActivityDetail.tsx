@@ -1,4 +1,4 @@
-import { ReferenceField, useGetIdentity } from "react-admin";
+import { FieldProps, ReferenceField, useGetIdentity } from "react-admin";
 import { useGetLockLive } from "@react-admin/ra-realtime";
 import { Box, Typography } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -6,7 +6,7 @@ import LockIcon from "@mui/icons-material/Lock";
 
 import { useGetTicketReadsForRecord } from "./useGetTicketReadsForRecord";
 
-export const ActivityDetail = () => {
+export const ActivityDetail = (props: Omit<FieldProps, 'source'>) => {
   const { data: lock } = useGetLockLive("tickets");
   const ticketReads = useGetTicketReadsForRecord();
   const { identity } = useGetIdentity();
@@ -44,7 +44,4 @@ export const ActivityDetail = () => {
         ))}
     </>
   );
-};
-ActivityDetail.defaultProps = {
-  label: "Activity",
 };
