@@ -8,7 +8,7 @@ import {
   Resource,
   localStorageStore,
 } from "react-admin";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import customers from "./customers";
 import products from "./products";
