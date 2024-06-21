@@ -6,6 +6,7 @@ import {
   Admin,
   RefreshIconButton,
   Resource,
+  ToggleThemeButton,
   localStorageStore,
 } from "react-admin";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -24,11 +25,29 @@ const MyLayout = (props: any) => (
       {...props}
       maxWidth="xl"
       toolbar={
-        <Box display="flex" gap={1} mr={1}>
+        <Box display="flex" gap={1} mr={1} alignItems="center">
           <Search />
+          <ToggleThemeButton />
           <RefreshIconButton />
         </Box>
       }
+      sx={{
+        "& .RaHeader-toolbar > *": {
+          flexBasis: "33.33%",
+          // FIXME: This should be fixed in ra-navigation
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        "& .RaHeader-toolbar > *:first-child": {
+          justifyContent: "flex-start",
+        },
+        "& .RaHeader-toolbar > *:last-child": {
+          justifyContent: "flex-end",
+        },
+        "& .MuiTabs-flexContainer": {
+          justifyContent: "center",
+        },
+      }}
     />
     <ReactQueryDevtools initialIsOpen={false} />
     <ConnectionWatcher />
