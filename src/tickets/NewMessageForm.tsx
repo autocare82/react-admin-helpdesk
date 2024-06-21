@@ -65,7 +65,12 @@ export const NewMessageForm = () => {
   };
 
   return (
-    <ListItem alignItems="flex-start" sx={{ backgroundColor: "#ffffef" }}>
+    <ListItem
+      alignItems="flex-start"
+      sx={{
+        backgroundColor: (theme) => theme.palette.background.default,
+      }}
+    >
       <ListItemAvatar>
         <Avatar src={identity?.avatar} />
       </ListItemAvatar>

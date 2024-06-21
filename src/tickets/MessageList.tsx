@@ -26,7 +26,12 @@ export const MessageList = () => {
           <ListItem
             alignItems="flex-start"
             sx={
-              message.author === "agent" ? { backgroundColor: "#ffffef" } : {}
+              message.author === "agent"
+                ? {
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }
+                : {}
             }
           >
             <ListItemAvatar>
