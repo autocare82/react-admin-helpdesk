@@ -35,7 +35,7 @@ const MyLayout = (props: any) => (
         "& .RaHeader-toolbar > *": {
           flexBasis: "33.33%",
           // FIXME: This should be fixed in ra-navigation
-          // alignItems: "center",
+          alignItems: "center",
           justifyContent: "center",
         },
         "& .RaHeader-toolbar > *:first-of-type": {
