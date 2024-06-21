@@ -69,6 +69,7 @@ const App = () => (
       </Box>
     }
     layout={MyLayout}
+    defaultTheme="light"
   >
     <Resource name="tickets" {...tickets} />
     <Resource name="customers" {...customers} />
