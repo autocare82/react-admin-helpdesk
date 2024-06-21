@@ -34,8 +34,8 @@ export const CustomerShow = () => (
     >
       <Datagrid bulkActionButtons={false} rowClick="show">
         <DateField label="Date" source="updated_at" />
-        <SubjectField />
-        <FromField />
+        <SubjectField label="Subject" />
+        <FromField label="From" />
         <StatusField />
       </Datagrid>
     </ReferenceManyField>

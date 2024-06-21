@@ -6,9 +6,10 @@ import {
   Admin,
   RefreshIconButton,
   Resource,
+  ToggleThemeButton,
   localStorageStore,
 } from "react-admin";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import customers from "./customers";
 import products from "./products";
@@ -24,13 +25,35 @@ const MyLayout = (props: any) => (
       {...props}
       maxWidth="xl"
       toolbar={
-        <Box display="flex" gap={1} mr={1}>
+        <Box display="flex" gap={1} mr={1} alignItems="center">
           <Search />
+          <ToggleThemeButton />
           <RefreshIconButton />
         </Box>
       }
+      sx={{
+        "& .RaHeader-toolbar > *": {
+          flexBasis: "33.33%",
+          // FIXME: This should be fixed in ra-navigation
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        "& .RaHeader-toolbar > *:first-of-type": {
+          justifyContent: "flex-start",
+        },
+        "& .RaHeader-toolbar > *:last-child": {
+          justifyContent: "flex-end",
+        },
+        "& .MuiTabs-flexContainer": {
+          justifyContent: "center",
+        },
+      }}
     />
-    <ReactQueryDevtools initialIsOpen={false} />
+    <ReactQueryDevtools
+      initialIsOpen={false}
+      // To avoid collision with the ConnectionWatcher notifications
+      buttonPosition="bottom-left"
+    />
     <ConnectionWatcher />
   </>
 );
@@ -46,6 +69,7 @@ const App = () => (
       </Box>
     }
     layout={MyLayout}
+    defaultTheme="light"
   >
     <Resource name="tickets" {...tickets} />
     <Resource name="customers" {...customers} />

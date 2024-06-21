@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useListContext, ReferenceField } from "react-admin";
+import { useListContext, ReferenceField, Error } from "react-admin";
 import { useFormContext } from "react-hook-form";
 import {
   Divider,
@@ -14,9 +14,11 @@ import { NewMessageForm } from "./NewMessageForm";
 import { CustomerAvatar } from "../customers/CustomerAvatar";
 
 export const MessageList = () => {
-  const { data, isLoading } = useListContext();
+  const { data, error, isPending } = useListContext();
 
-  if (isLoading) return null;
+  if (isPending) return null;
+  if (error) return null;
+
   return (
     <List sx={{ width: "100%", pt: 0 }}>
       {data.map((message) => (
@@ -24,7 +26,12 @@ export const MessageList = () => {
           <ListItem
             alignItems="flex-start"
             sx={
-              message.author === "agent" ? { backgroundColor: "#ffffef" } : {}
+              message.author === "agent"
+                ? {
+                    backgroundColor: (theme) =>
+                      theme.palette.background.default,
+                  }
+                : {}
             }
           >
             <ListItemAvatar>

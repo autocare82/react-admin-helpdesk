@@ -1,7 +1,7 @@
-import { ReferenceOneField, TextField } from "react-admin";
+import { FieldProps, ReferenceOneField, TextField } from "react-admin";
 import { Box } from "@mui/material";
 
-export const SubjectField = (_props: { label: string }) => (
+export const SubjectField = (props: Omit<FieldProps, "source">) => (
   <Box
     className="column-content"
     overflow="hidden"
@@ -21,7 +21,3 @@ export const SubjectField = (_props: { label: string }) => (
     </ReferenceOneField>
   </Box>
 );
-
-SubjectField.defaultProps = {
-  label: "Subject",
-};

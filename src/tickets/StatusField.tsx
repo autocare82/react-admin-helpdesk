@@ -1,7 +1,7 @@
-import { useRecordContext } from "react-admin";
+import { FieldProps, useRecordContext } from "react-admin";
 import { Chip } from "@mui/material";
 
-export const StatusField = (_props: { label?: string }) => {
+export const StatusField = (props: Omit<FieldProps, "source">) => {
   const record = useRecordContext();
   if (!record) return null;
   return (

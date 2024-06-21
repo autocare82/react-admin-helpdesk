@@ -42,7 +42,7 @@ const ShowAside = () => {
       <DateField source="updated_at" showTime />
       <ReferenceField source="customer_id" reference="customers" link="show" />
       <ReferenceField source="product_id" reference="products" link="show" />
-      <ActivityDetail />
+      <ActivityDetail label="Activity" />
     </SimpleShowLayout>
   );
 };

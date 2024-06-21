@@ -67,8 +67,8 @@ export const ProductShow = () => (
             </ReferenceField>
             <ReferenceField source="customer_id" reference="customers" />
             <TicketDateField label="Date" source="updated_at" />
-            <SubjectField />
-            <FromField />
+            <SubjectField label="Subject" />
+            <FromField label="From" />
             <StatusField />
           </Datagrid>
         </ReferenceManyField>

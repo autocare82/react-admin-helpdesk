@@ -1,6 +1,6 @@
-import { ReferenceOneField, WithRecord } from "react-admin";
+import { FieldProps, ReferenceOneField, WithRecord } from "react-admin";
 
-export const FromField = () => (
+export const FromField = (props: Omit<FieldProps, "source">) => (
   <ReferenceOneField
     label="From"
     reference="messages"
@@ -17,7 +17,3 @@ export const FromField = () => (
     />
   </ReferenceOneField>
 );
-
-FromField.defaultProps = {
-  label: "From",
-};

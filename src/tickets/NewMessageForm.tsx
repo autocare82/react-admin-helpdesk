@@ -28,7 +28,7 @@ export const NewMessageForm = () => {
 
   const { refetch } = useListContext();
   const record = useRecordContext();
-  const [create, { isLoading: isCreating }] = useCreate();
+  const [create, { isPending: isCreating }] = useCreate();
   const [update] = useUpdate();
   const resetForm = useRef<any>();
   const { identity } = useGetIdentity();
@@ -44,7 +44,7 @@ export const NewMessageForm = () => {
         data: {
           id: uuidv4(),
           ...message,
-          ticket_id: record.id,
+          ticket_id: record?.id,
           author: "agent",
           email: identity?.email,
           agent_id: identity?.id,
@@ -54,7 +54,7 @@ export const NewMessageForm = () => {
       {
         onSuccess: () => {
           update("tickets", {
-            id: record.id,
+            id: record?.id,
             data: { status, updated_at: timestamp },
           });
           resetForm.current && resetForm.current();
@@ -65,7 +65,12 @@ export const NewMessageForm = () => {
   };
 
   return (
-    <ListItem alignItems="flex-start" sx={{ backgroundColor: "#ffffef" }}>
+    <ListItem
+      alignItems="flex-start"
+      sx={{
+        backgroundColor: (theme) => theme.palette.background.default,
+      }}
+    >
       <ListItemAvatar>
         <Avatar src={identity?.avatar} />
       </ListItemAvatar>
