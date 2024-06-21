@@ -38,7 +38,7 @@ const MyLayout = (props: any) => (
           alignItems: "center",
           justifyContent: "center",
         },
-        "& .RaHeader-toolbar > *:first-child": {
+        "& .RaHeader-toolbar > *:first-of-type": {
           justifyContent: "flex-start",
         },
         "& .RaHeader-toolbar > *:last-child": {
